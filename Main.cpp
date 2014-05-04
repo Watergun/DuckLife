@@ -1,18 +1,53 @@
-#include "Classes.h"
+#include <Windows.h>
+#include <cstdlib>
+#include <iostream>
+#include "ErrorReport.h"
+#include "CArrow.h"
+#include "ObjectInterface.h"
+
+int Move(float fTime)
+{
+	return 1;
+}
+
+int Render(float fTime);
+
+int MainLoop(float fTime)
+{
+
+	Move(fTime);
+	Render(fTime);
+
+	return 1;
+}
+
+int InitScene()
+{
+	return 1;
+}
+
+void EndScene()
+{
+}
 
 int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR lpSmd, int nCmdShow)
-{
-	GAMEFRAME NewGame;
+{	
+	float fTime = 0.0f;
+
+	if(!InitStage())
+		return 0;
+
 	int r = 0;
-	r = SDL_Init(SDL_INIT_TIMER | SDL_INIT_AUDIO | SDL_INIT_VIDEO);
-	if(r < 0)
+	do
 	{
-		ERROR_REPORT::ShowError("Main.cpp","WINAPI","WinMain","SDL_Init",SDL_GetError());
-		SDL_Surface* Screen = SDL_SetVideoMode(800,600,24,SDL_HWSURFACE | SDL_DOUBLEBUF);
+		r = Move(fTime);
+		if(!r)
+			break;
 
-		Exit();
-	}
+		r = Render(fTime);
+	}while(r);
 
-	Exit();
-	return 1;
+	EndScene();
+
+	return 0;
 }
