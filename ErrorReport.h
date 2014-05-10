@@ -13,7 +13,7 @@ public:
        	{
 		ErrorCount = 0;
 	};
-	
+
 	static int ErrorCount;
 	//
 	static int ReportError(char* Message);

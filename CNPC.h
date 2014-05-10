@@ -1,3 +1,8 @@
+#ifndef CNPC_H
+#define CNPC_H
+
+#include "CPerson.h"
+
 class CNPC : public CPerson
 {
 //ATTRIBUTES
@@ -20,3 +25,5 @@ public:
 	bool getFriendly();
 	void setFriendly(bool bFriendly);
 };
+
+#endif

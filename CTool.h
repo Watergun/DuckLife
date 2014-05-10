@@ -1,3 +1,8 @@
+#ifndef CTOOL_H
+#define CTOOL_H
+
+#include "CObject.h"
+
 abstract class CTool : public CObject
 {
 //ATTRIBUTES
@@ -29,3 +34,5 @@ public:
 	int getWeight();
 	void setWeight(int nWeight);
 };
+
+#endif

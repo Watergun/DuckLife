@@ -1,3 +1,9 @@
+#ifndef CMAP_H
+#define CMAP_H
+
+#include "ErrorReport.h"
+#include "CSurrounding.h"
+
 class CMap
 {
 //ATTRIBUTES
@@ -20,3 +26,5 @@ public:
 	//Get a specific Surrounding object
 	CSurroundig* getSurroundingObject(int n_x, int n_y);
 };
+
+#endif

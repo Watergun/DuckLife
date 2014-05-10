@@ -1,4 +1,8 @@
-/*KLASSE CARROW
+#ifndef CARROW_H
+#define CARROW_H
+
+/*CLASS DESCRIPTION [DE]
+KLASSE CARROW
 Die Klasse CArrow stellt ein sich bewegendes Objekt im Raum
 dar. Sie erbt von ObjektInterface, weshalb ihr ein Modell
 zugeschrieben werden kann.
@@ -13,22 +17,22 @@ Die Klasse CArrow wird mit der Init Methode initialisiert.
 InitAFC initialisiert die Luftwiderstandsberechnung.
 
 */
-#pragma once
-#include "OI.h"
-#define DEBUG
+
+#include "CObject.h"
+
 //Die KLasse hat als internen Winkeltyp das Gradmaß
 //Jedoch kann  der Aufrufer selbst entscheiden welchen Typ
 //er initialisiert und spaeter als Ausgabe bekommt
 enum ANGLETYPE {DEG, RAD};	//-> entspricht dem (externen) gewuenschten Winkeltyp
 
-class CArrow : public OI
+class CArrow : public CObject
 {
 public:
 	//Konstruktor und Destruktor entsprechen der Oberklasse
 	CArrow()
-	{if(!m_pObjectModel) m_pObjectModel = new tbModel;}
+	{if(!m_pModel) m_pObjectModel = new tbModel;}
 	~CArrow()
-	{if(m_pObjectModel != NULL) delete m_pObjectModel;
+	{if(m_pModel != NULL) delete m_pObjectModel;
 				m_pObjectModel = NULL;}
 	//Die normale Initialisierungsmethode
 	void		Init(float fGravity,
@@ -81,9 +85,6 @@ private:
 	//
 	float			m_f_Rho_A_W_05_Value;
 	float			m_fMass;
-
-#ifdef DEBUG
-	//NOTIZ: Kann nicht funktionieren
-	static double	 m_dImprecision;
-#endif
 };
+
+#endif

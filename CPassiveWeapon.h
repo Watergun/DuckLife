@@ -1,3 +1,8 @@
+#ifndef CPASSIVEWEAPON_H
+#define CPASSIVEWEAPON_H
+
+#include "CWeapon.h"
+
 class CPassiveWeapon : public CWeapon
 {
 //ATTRIBUTES
@@ -12,3 +17,5 @@ public:
 	//Derive Activate()
 	void Activate();
 };
+
+#endif

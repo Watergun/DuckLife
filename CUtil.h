@@ -1,3 +1,8 @@
+#ifndef CUTIL_H
+#define CUTIL_H
+
+#include "CTool.h"
+
 class CUtil : public CTool
 {
 //ATTRIBUTES
@@ -9,3 +14,5 @@ public:
 	CUtil();
 	~CUtil();
 };
+
+#endif

@@ -1,3 +1,11 @@
+#ifndef CGAME_H
+#define CGAME_H
+
+#include "ErrorReport.h"
+#include "CMap.h"
+#include "CNPC.h"
+#include "CUPC.h"
+
 class CGame
 {
 //ATTRIBUTES
@@ -23,3 +31,5 @@ public:
 	//The render method
 	bool Render(float fTime);
 };
+
+#endif

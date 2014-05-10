@@ -1,9 +1,12 @@
+#ifndef CUPC_H
+#define CUPC_H
+
+#include "CPerson.h"
+
 class CUPC : public CPerson
 {
 //ATTRIBUTES
 private:
-	CTool* m_Inventory;
-
 	int m_nMoney;
 
 	int m_nExperience;
@@ -22,3 +25,5 @@ public:
 	int getMoney();
 	void setMoney(int nMoney);
 };
+
+#endif

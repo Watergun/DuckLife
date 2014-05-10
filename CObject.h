@@ -1,4 +1,8 @@
-#include CModel.h
+#ifndef COBJECT_H
+#define COBJECT_H
+
+#include "ErrorReport.h"
+#include "CModel.h"
 
 abstract class CObject
 {
@@ -16,3 +20,5 @@ public:
 	CObject();
 	virtual ~CObject();
 };
+
+#endif

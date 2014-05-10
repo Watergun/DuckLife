@@ -1,3 +1,8 @@
+#ifndef CWEAPON_H
+#define CWEAPON_H
+
+#include "CTool.h"
+
 abstract class CWeapon : public CTool
 {
 //ATTRIBUTES
@@ -17,3 +22,5 @@ public:
 	//Abstract method
 	void Activate() = 0;
 };
+
+#endif
