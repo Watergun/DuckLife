@@ -9,7 +9,7 @@ class CMap
 //ATTRIBUTES
 private:
 	//All Sourroundings
-	CSurroundings* m_Surroundings;
+	CSurrounding* m_pSurroundings;
 
 //METHODS
 public:
@@ -17,14 +17,17 @@ public:
 	CMap();
 	~CMap();
 
+	int m_nSize;
+
 	//Method to load a map from a file
-	bool LoadMap(const char* m_cstrFilename);
+	bool LoadSurroundings(const char* cstrFilename);
+//	bool LoadHeightMap(const char* cstrFilename);
 
 	//Get all surroundings
 	CSurrounding* getSurroundings();
 
 	//Get a specific Surrounding object
-	CSurroundig* getSurroundingObject(int n_x, int n_y);
+	CSurrounding* getSurroundingObject(int nPos);
 };
 
 #endif

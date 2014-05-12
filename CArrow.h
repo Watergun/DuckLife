@@ -30,38 +30,49 @@ class CArrow : public CObject
 public:
 	//Konstruktor und Destruktor entsprechen der Oberklasse
 	CArrow()
-	{if(!m_pModel) m_pObjectModel = new tbModel;}
+	{
+		if(!m_pModel)
+			m_pModel = new CModel;
+	}
+
 	~CArrow()
-	{if(m_pModel != NULL) delete m_pObjectModel;
-				m_pObjectModel = NULL;}
+	{
+		if(m_pModel != NULL)
+			delete m_pModel;
+		m_pModel = NULL;
+	}
+
 	//Die normale Initialisierungsmethode
-	void		Init(float fGravity,
-					float fStartVelocity,
-					float fStartAngleUD,
-					float StartAngleLR,
-					ANGLETYPE AType,
-					char* pcModelFilename,
-					tbVector3 vStartPos = tbVector3(0.0f,0.0f,0.0f),
-					BOOL bAirFrictionComputing = FALSE);
+	void Init(float fGravity,
+		  float fStartVelocity,
+		  float fStartAngleUD,
+		  float StartAngleLR,
+		  ANGLETYPE AType,
+		  char* pcModelFilename,
+		  SVector3 vStartPos = SVector3(0.0f,0.0f,0.0f),
+		  BOOL bAirFrictionComputing = FALSE);
+
 	//Fuer die Luftwiederstandsberechnungen
-	void		InitAFC(float fEnvironmentDensity,
-						float fFrontalSurface, 
-						float AerodynamicValue,
-						float fMass);
+	void InitAFC(float fEnvironmentDensity,
+		     float fFrontalSurface,
+		     float AerodynamicValue,
+		     float fMass);
+
 	//Berechnet die neue Geschwindigkeit und Position
 	void		CalcPos(float fNumSecsPassed);
+
 	//Richtung
-	tbVector3	GetDirection()	{return tbVector3Normalize(m_vDirection);}
+	SVector3	GetDirection()	{return SVector3Normalize(m_vDirection);}
+
 	//Position
-	tbVector3	GetPosition()	{return m_vPosition;}
+	SVector3	GetPosition()	{return m_vPosition;}
+
 	//Winkelangaben in der Klasse
 	float		GetUDAngle()
-		{return ((m_AT == RAD) ? m_fFlyingAngleUD : TB_RAD_TO_DEG(m_fFlyingAngleUD));}
+		{return ((m_AT == RAD) ? m_fFlyingAngleUD : RAD_TO_DEG(m_fFlyingAngleUD));}
 	float		GetLRAngle()
-		{return ((m_AT == RAD) ? m_fFlyingAngleLR : TB_RAD_TO_DEG(m_fFlyingAngleLR));}
+		{return ((m_AT == RAD) ? m_fFlyingAngleLR : RAD_TO_DEG(m_fFlyingAngleLR));}
 private:
-	//Ueberschreiben der abstrakten Methode
-	void Derive()	{}
 	//KLassenattribute
 	//Die Geschwindigkeiten (gesamt,X,Y,Z)
 	float			m_fVelocity;
@@ -72,8 +83,8 @@ private:
 	float			m_fFlyingAngleUD;
 	float			m_fFlyingAngleLR;
 	//Position und Richtung
-	tbVector3		m_vPosition;
-	tbVector3		m_vDirection;
+	SVector3		m_vPosition;
+	SVector3		m_vDirection;
 	//Betrag der Gravitation
 	float			m_fGravity;
 	//Extern(!) gewuenschter Winkeltyp

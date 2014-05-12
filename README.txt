@@ -15,6 +15,8 @@ there has to be space for improvement.
 The graphics should also not be very high at the beginning, 
 so that the game movement can be fast.
 first: the system, later: the graphics
+I use OpenGL as graphics engine.
+
 
 SPECIFIC:
 Every object in DuckLife is a child class of the abstract class CObject,

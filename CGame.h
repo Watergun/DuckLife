@@ -11,13 +11,13 @@ class CGame
 //ATTRIBUTES
 public:
 	//The map class
-	static CMap m_Map;
+	static CMap* m_pMap;
 
 	//The player class
-	static CUPC m_Player;
+	static CUPC* m_pPlayer;
 
 	//All npcs in the game
-	static CNPC*	m_Npcs;
+	static CNPC* m_pNpcs;
 
 //METHODS
 public:
