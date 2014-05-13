@@ -18,10 +18,11 @@ first: the system, later: the graphics
 I use OpenGL as graphics engine.
 
 
-SPECIFIC:
-Every object in DuckLife is a child class of the abstract class CObject,
-which simply contains a mesh as 3d-model and a string to define
-an identifier.
+ENGINE: OpenGL
 
-
+CLASSES: The diagram in Classes.png describes the relation of
+	the most classes in this repository. They are all the basis
+	of a functioning game.
+	The most important class is CGame.
+	It contains the main loop, the render and the move method. 
 
